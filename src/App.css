@@ -1,0 +1,40 @@
+body {
+  background-color: black;
+}
+
+#container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 2px solid red;
+}
+
+.flex {
+  display: flex;
+}
+
+.group {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  border: 2px solid blue;
+}
+
+.vstack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  border: 2px solid green;
+}
+
+.spacing-1 {
+  margin: 0 1px;
+}
