@@ -46,10 +46,10 @@ describe('useModule hook', () => {
     expect(result.current.modules[GROUP][VSTACK]).toHaveLength(1)
     expect(result.current.modules[GROUP][HSTACK][VSTACK]).toHaveLength(2)
     expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_x', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_y', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_y', 1)
     expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('data', {})
     expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('pos_x', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('pos_y', 1)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('pos_y', 0)
     expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('data', {})
   })
 

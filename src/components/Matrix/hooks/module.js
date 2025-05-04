@@ -73,7 +73,7 @@ export default class Module {
       return this
     }
 
-    const currentVStack = currentHStack[vstack]
+    let currentVStack = currentHStack[vstack]
 
     if (!currentVStack) {
       console.error('VStack index out of bounds')
@@ -84,6 +84,7 @@ export default class Module {
     newModule.pos_x = 0
     newModule.pos_y = maxY + 1
     currentVStack.push(newModule)
+    currentVStack = currentVStack.sort((a, b) => b.pos_y - a.pos_y)
     this.modules[group][hstack] = currentHStack
 
     return this
