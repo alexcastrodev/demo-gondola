@@ -6,17 +6,19 @@ export default class Module {
   newGroup() {
     this.modules.push([
       // GROUP
-      [
-        // HSTACK
-        [
-          // VSTACK
-          {
-            // New box
-            pos_x: 0,
-            pos_y: 0,
-            data: {},
-          },
-        ],
+      [ // HSTACK
+        {
+          settings: {},
+          boxes: [ // VSTACK
+            {
+              // New box
+              pos_x: 0,
+              pos_y: 0,
+              data: {},
+            },
+          ]
+        }  
+        
       ],
     ])
 
@@ -31,8 +33,8 @@ export default class Module {
         // Instead loop all vstacks
         // Does not matter how much vstack we have
         // we just need the current x
-        if (vstacks[0]['pos_x'] > highestX) {
-          highestX = vstacks[0]['pos_x']
+        if (vstacks.boxes[0]['pos_x'] > highestX) {
+          highestX = vstacks.boxes[0]['pos_x']
         }
       }
     }
@@ -55,10 +57,14 @@ export default class Module {
 
     this.modules[group].push([
       // HSTACK
-      [
-        // VSTACK
-        newModule, // New box
-      ],
+      {
+        settings: {
+          spacing: 12
+        },
+        boxes: [ // VSTACK
+          newModule,
+        ]
+      }
     ])
 
     return this
@@ -80,11 +86,11 @@ export default class Module {
       return this
     }
 
-    const maxY = Math.max(...currentVStack.map((mod) => mod.pos_y), -1)
+    const maxY = Math.max(...currentVStack.boxes.map((mod) => mod.pos_y), -1)
     newModule.pos_x = 0
     newModule.pos_y = maxY + 1
-    currentVStack.push(newModule)
-    currentVStack = currentVStack.sort((a, b) => b.pos_y - a.pos_y)
+    currentVStack.boxes.push(newModule)
+    currentVStack = currentVStack.boxes.sort((a, b) => b.pos_y - a.pos_y)
     this.modules[group][hstack] = currentHStack
 
     return this

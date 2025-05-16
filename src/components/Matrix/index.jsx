@@ -27,8 +27,8 @@ function RenderGroup({ hstacks, group }) {
 function RenderHStack({ group, vstacks, hstack }) {
   return (
     <div className="hstack">
-      {vstacks.map((boxes, vStackIndex) => (
-        <RenderVStack key={vStackIndex} group={group} boxes={boxes} hstack={hstack} vstack={vStackIndex} />
+      {vstacks.map((boxWrapper, vStackIndex) => (
+        <RenderVStack key={vStackIndex} group={group} boxes={boxWrapper.boxes} hstack={hstack} vstack={vStackIndex} />
       ))}
     </div>
   )

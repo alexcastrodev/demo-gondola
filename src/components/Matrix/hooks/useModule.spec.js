@@ -22,9 +22,9 @@ describe('useModule hook', () => {
     expect(result.current.modules).toHaveLength(1)
     expect(result.current.modules[GROUP]).toHaveLength(1)
     expect(result.current.modules[GROUP][VSTACK]).toHaveLength(1)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK]).toHaveLength(1)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_x', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_y', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes).toHaveLength(1)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('pos_x', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('pos_y', 0)
   })
 
   it('should add a box to an existing stack', () => {
@@ -44,13 +44,13 @@ describe('useModule hook', () => {
     expect(result.current.modules).toHaveLength(1)
     expect(result.current.modules[GROUP]).toHaveLength(1)
     expect(result.current.modules[GROUP][VSTACK]).toHaveLength(1)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK]).toHaveLength(2)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_x', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_y', 1)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('data', {})
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('pos_x', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('pos_y', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][1]).toHaveProperty('data', {})
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes).toHaveLength(2)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('pos_x', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('pos_y', 1)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('data', {})
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[1]).toHaveProperty('pos_x', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[1]).toHaveProperty('pos_y', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[1]).toHaveProperty('data', {})
   })
 
   it('Should a new stack to an existing group', () => {
@@ -72,13 +72,13 @@ describe('useModule hook', () => {
     expect(result.current.modules).toHaveLength(1)
     expect(result.current.modules[GROUP]).toHaveLength(2)
 
-    expect(result.current.modules[GROUP][HSTACK][VSTACK]).toHaveLength(1)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_x', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('pos_y', 0)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK][0]).toHaveProperty('data', {})
-    expect(result.current.modules[GROUP][NEW_HSTACK][NEW_VSTACK][0]).toHaveProperty('pos_x', 1)
-    expect(result.current.modules[GROUP][NEW_HSTACK][NEW_VSTACK][0]).toHaveProperty('pos_y', 0)
-    expect(result.current.modules[GROUP][NEW_HSTACK][NEW_VSTACK][0]).toHaveProperty('data', {})
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes).toHaveLength(1)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('pos_x', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('pos_y', 0)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes[0]).toHaveProperty('data', {})
+    expect(result.current.modules[GROUP][NEW_HSTACK][NEW_VSTACK].boxes[0]).toHaveProperty('pos_x', 1)
+    expect(result.current.modules[GROUP][NEW_HSTACK][NEW_VSTACK].boxes[0]).toHaveProperty('pos_y', 0)
+    expect(result.current.modules[GROUP][NEW_HSTACK][NEW_VSTACK].boxes[0]).toHaveProperty('data', {})
   })
 
   it('Should always add a box on the top of stack', () => {
@@ -100,6 +100,6 @@ describe('useModule hook', () => {
     })
 
     expect(result.current.modules).toHaveLength(1)
-    expect(result.current.modules[GROUP][HSTACK][VSTACK]).toHaveLength(3)
+    expect(result.current.modules[GROUP][HSTACK][VSTACK].boxes).toHaveLength(3)
   })
 })
